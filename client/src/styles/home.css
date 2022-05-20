@@ -1,0 +1,24 @@
+﻿#login-form > *, .row, .form-group > *:not(:last-child){
+    margin-bottom: 0.8em;
+}
+
+
+#forget-password-link{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+#login{
+    width: 100%;
+}
+
+#create-new-account{
+    text-align: center;
+}
+
+
+
+
+

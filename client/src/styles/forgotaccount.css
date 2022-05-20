@@ -1,0 +1,12 @@
+﻿#forgot-account-details{
+    margin-bottom: 0.8em;
+}
+
+#forgot-account-btns{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#cancel-btn{
+    margin-right: 0.8em;
+}
