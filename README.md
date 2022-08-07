@@ -1,5 +1,5 @@
 # Chat Book
-Technologies used: React, Redux, Express, Node, MongoDB
+Technologies used: React, Redux, Express, Node, MongoDB<br/>
 A real time chat application that connects people together. 
 
 
