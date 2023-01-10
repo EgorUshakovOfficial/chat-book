@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const Register = () => {
-    // State 
+    // State
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
@@ -13,8 +13,8 @@ const Register = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
-        // Fetch data 
-        fetch("http://localhost:4000/register", {
+        // Fetch data
+        fetch("https://chat-book.onrender.com/register", {
             method: "POST",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify({
@@ -80,4 +80,4 @@ const Register = () => {
     )
 }
 
-export default Register; 
+export default Register;

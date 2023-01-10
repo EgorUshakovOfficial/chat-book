@@ -1,7 +1,7 @@
 import { logoutUser } from './actions.js';
 
 export const fetchLogout = () => dispatch => {
-    return fetch('http://localhost:4000/logout', {
+    return fetch('https://chat-book.onrender.com/logout', {
         method: "GET",
         credentials: "include"
     })

@@ -4,7 +4,7 @@ import {
 } from './actions';
 
 export const fetchLogin = token => dispatch => {
-    return fetch('http://localhost:4000/user', {
+    return fetch('https://chat-book.onrender.com/user', {
         method: "GET",
         headers: {
             "Content-type": "application/json",
@@ -23,4 +23,4 @@ export const fetchLogin = token => dispatch => {
     .catch(err => console.log(err))
 }
 
-export default fetchLogin; 
+export default fetchLogin;

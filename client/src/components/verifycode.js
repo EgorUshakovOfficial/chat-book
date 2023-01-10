@@ -1,5 +1,5 @@
 import { useSearchParams, useNavigate} from 'react-router-dom';
-import { useState, useEffect} from 'react'; 
+import { useState, useEffect} from 'react';
 const VerifyCode = () => {
     // State
     const [code, setCode] = useState('')
@@ -8,25 +8,25 @@ const VerifyCode = () => {
     const [searchParams] = useSearchParams()
     let email = searchParams.get('email')
 
-    // Navigate 
+    // Navigate
     const navigate = useNavigate()
 
     console.log(email)
 
-    // Redirects user back to home page if navigated to this page by url  
+    // Redirects user back to home page if navigated to this page by url
     useEffect(() => {
         if (email === null) {
             navigate('/', { replace: true })
         }
     }, [])
 
-    // Handle submit 
+    // Handle submit
     const handleSubmit = e => {
         e.preventDefault()
 
-        fetch(`http://localhost:4000/forgot-password/${code}`, {
+        fetch(`https://chat-book.onrender.com/forgot-password/${code}`, {
             method: "GET",
-            headers: {'Content-type':"application/json"}       
+            headers: {'Content-type':"application/json"}
         })
             .then(async res => {
                 let data = await res.json()
@@ -36,7 +36,7 @@ const VerifyCode = () => {
                     navigate('/forgot-password', { replace: true, state: {errMessage:"An invalid verification code was entered. Please try again"} })
 
                 }
-                   
+
             })
     }
 
@@ -54,4 +54,4 @@ const VerifyCode = () => {
     )
 }
 
-export default VerifyCode; 
+export default VerifyCode;

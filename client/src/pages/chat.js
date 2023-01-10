@@ -14,7 +14,7 @@ const Chat = ({user, authToken, timer, logoutUser}) => {
     const [activeUsers, setActiveUsers] = useState([])
 
     useEffect(() => {
-        let socket = socketIo.connect('http://localhost:4000', {
+        let socket = socketIo.connect('https://chat-book.onrender.com', {
             auth: {
                 token: authToken
             }
@@ -22,17 +22,17 @@ const Chat = ({user, authToken, timer, logoutUser}) => {
 
         setSocket(socket)
 
-        // Messages 
+        // Messages
         socket.on('message', data => {
             setMessages(messages => [...messages, data])
         })
 
-        // Update list of active users 
+        // Update list of active users
         socket.on('update users', users => {
             setActiveUsers(users)
         })
 
-        // Clean up 
+        // Clean up
         return () => socket.disconnect()
     }, [])
 
@@ -47,4 +47,4 @@ const Chat = ({user, authToken, timer, logoutUser}) => {
     )
 }
 
-export default Chat; 
+export default Chat;

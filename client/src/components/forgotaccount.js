@@ -1,23 +1,23 @@
 import { useState } from 'react';
 import '../styles/forgotaccount.css';
-import { useNavigate, useLocation} from 'react-router-dom'; 
+import { useNavigate, useLocation} from 'react-router-dom';
 const ForgotAccount = () => {
-    // State 
+    // State
     const [email, setEmail] = useState('')
 
-    // Navigate 
+    // Navigate
     const navigate = useNavigate()
 
-    // Location 
+    // Location
     const location = useLocation()
     const {state} = location
 
-    // Handle submit 
+    // Handle submit
     const handleSubmit = e => {
         e.preventDefault()
 
-        // Send email 
-        fetch('http://localhost:4000/forgot-password', {
+        // Send email
+        fetch('https://chat-book.onrender.com/forgot-password', {
             method: "POST",
             headers: { 'Content-type': "application/json" },
             body: JSON.stringify({
@@ -51,4 +51,4 @@ const ForgotAccount = () => {
     </div>)
 }
 
-export default ForgotAccount; 
+export default ForgotAccount;

@@ -14,10 +14,10 @@ import {
 
 
 const Presentational = ({ addToken, fetchUser, logoutUser, notLoading, setTimer}) => {
-    // Store is where state of the entire application resides 
+    // Store is where state of the entire application resides
     const { store } = useContext(ReactReduxContext)
 
-    // State of application 
+    // State of application
     let {
         token,
         user,
@@ -27,7 +27,7 @@ const Presentational = ({ addToken, fetchUser, logoutUser, notLoading, setTimer}
     } = store.getState()
 
     const verifyUser = () => {
-        fetch('http://localhost:4000/refreshToken', {
+        fetch('https://chat-book.onrender.com/refreshToken', {
             method: "POST",
             credentials: "include"
         })
@@ -70,7 +70,8 @@ const Presentational = ({ addToken, fetchUser, logoutUser, notLoading, setTimer}
                     </div>
                 </div>
             }
-            {loading===false &&                <Routes>
+            {loading===false &&
+                <Routes>
                     {token ?
                         <Route path="/" element={<Profile timer={timer} user={user} authToken={token} logoutUser={logoutUser} />} />
                         :

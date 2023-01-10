@@ -2,26 +2,26 @@ import {useState, useEffect} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const ResetPassword = () => {
-    // Navigate 
+    // Navigate
     const navigate = useNavigate()
 
     // Location
     const location = useLocation()
 
-    // State 
+    // State
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [mismatch, setMismatch] = useState('')
     const [error, setError] = useState('')
 
-    // Redirects user back to home page if navigated to this page by url  
+    // Redirects user back to home page if navigated to this page by url
     useEffect(() => {
         if (location.state?.isMatch === false || location.state === null) {
             navigate('/', { replace: true})
         }
     }, [])
 
-    // Handle submit 
+    // Handle submit
     const handleSubmit = e => {
         e.preventDefault()
 
@@ -30,8 +30,8 @@ const ResetPassword = () => {
             return
         }
 
-        // Update user password 
-        fetch(`http://localhost:4000/forgot-password/reset`, {
+        // Update user password
+        fetch(`https://chat-book.onrender.com/forgot-password/reset`, {
             method: "POST",
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
@@ -50,10 +50,10 @@ const ResetPassword = () => {
                 }
             })
             .catch(err => console.log(err))
-        
+
     }
 
-   
+
     return (
         <div id="reset-password">
             <h2>Reset password</h2>
@@ -81,4 +81,4 @@ const ResetPassword = () => {
     )
 }
 
-export default ResetPassword; 
+export default ResetPassword;

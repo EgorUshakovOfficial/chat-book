@@ -4,7 +4,8 @@
   "description": "Platform that allows users to chat with each other",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "render-build":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Egor Ushakov",
   "license": "MIT",
